@@ -3,9 +3,10 @@ package addr
 import (
 	"bytes"
 
-	ma "github.com/multiformats/go-multiaddr"
-	manet "github.com/multiformats/go-multiaddr-net"
-	mafmt "github.com/whyrusleeping/mafmt"
+	ma "github.com/dms3-mft/go-multiaddr"
+	manet "github.com/dms3-mft/go-multiaddr-net"
+//	mafmt "github.com/whyrusleeping/mafmt" // imports from multiformats, use ours
+	mafmt "github.com/dms3-why/mafmt"
 )
 
 func isFDCostlyTransport(a ma.Multiaddr) bool {

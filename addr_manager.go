@@ -7,9 +7,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/libp2p/go-libp2p-peer"
-	"github.com/libp2p/go-libp2p-peerstore/addr"
-	ma "github.com/multiformats/go-multiaddr"
+	"github.com/dms3-p2p/go-p2p-peer"
+	"github.com/dms3-p2p/go-p2p-peerstore/addr"
+	ma "github.com/dms3-mft/go-multiaddr"
 )
 
 var (

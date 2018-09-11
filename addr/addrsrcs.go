@@ -2,7 +2,7 @@
 package addr
 
 import (
-	ma "github.com/multiformats/go-multiaddr"
+	ma "github.com/dms3-mft/go-multiaddr"
 )
 
 // AddrSource is a source of addresses. It allows clients to retrieve

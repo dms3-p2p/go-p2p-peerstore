@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/libp2p/go-libp2p-peer"
+	"github.com/dms3-p2p/go-p2p-peer"
 )
 
 // LatencyEWMASmooting governs the decay of the EWMA (the speed

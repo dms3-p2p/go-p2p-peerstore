@@ -6,11 +6,11 @@ import (
 	"time"
 
 	"github.com/hashicorp/golang-lru"
-	ds "github.com/ipfs/go-datastore"
-	"github.com/ipfs/go-datastore/query"
-	"github.com/libp2p/go-libp2p-peer"
-	ma "github.com/multiformats/go-multiaddr"
-	mh "github.com/multiformats/go-multihash"
+	ds "github.com/dms3-fs/go-datastore"
+	"github.com/dms3-fs/go-datastore/query"
+	"github.com/dms3-p2p/go-p2p-peer"
+	ma "github.com/dms3-mft/go-multiaddr"
+	mh "github.com/dms3-mft/go-multihash"
 )
 
 // Number of times to retry transactional writes

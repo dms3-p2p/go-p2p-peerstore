@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	peer "github.com/libp2p/go-libp2p-peer"
-	mh "github.com/multiformats/go-multihash"
+	peer "github.com/dms3-p2p/go-p2p-peer"
+	mh "github.com/dms3-mft/go-multihash"
 )
 
 func TestQueue(t *testing.T) {

@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/libp2p/go-libp2p-crypto"
-	"github.com/libp2p/go-libp2p-peer"
-	ma "github.com/multiformats/go-multiaddr"
+	"github.com/dms3-p2p/go-p2p-crypto"
+	"github.com/dms3-p2p/go-p2p-peer"
+	ma "github.com/dms3-mft/go-multiaddr"
 )
 
 func getAddrs(t *testing.T, n int) []ma.Multiaddr {

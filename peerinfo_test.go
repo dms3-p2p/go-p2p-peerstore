@@ -3,8 +3,8 @@ package peerstore
 import (
 	"testing"
 
-	peer "github.com/libp2p/go-libp2p-peer"
-	ma "github.com/multiformats/go-multiaddr"
+	peer "github.com/dms3-p2p/go-p2p-peer"
+	ma "github.com/dms3-mft/go-multiaddr"
 )
 
 func mustAddr(t *testing.T, s string) ma.Multiaddr {
@@ -63,7 +63,7 @@ func TestP2pAddrParsing(t *testing.T) {
 		t.Error(err)
 	}
 	addr := ma.StringCast("/ip4/1.2.3.4/tcp/4536")
-	p2paddr := ma.Join(addr, ma.StringCast("/ipfs/"+peer.IDB58Encode(id)))
+	p2paddr := ma.Join(addr, ma.StringCast("/dms3fs/"+peer.IDB58Encode(id)))
 
 	pinfo, err := InfoFromP2pAddr(p2paddr)
 	if err != nil {
@@ -82,7 +82,7 @@ func TestP2pAddrParsing(t *testing.T) {
 		t.Fatalf("expected addr [%s], got [%s]", addr, pinfo.Addrs[0])
 	}
 
-	addr = ma.StringCast("/ipfs/" + peer.IDB58Encode(id))
+	addr = ma.StringCast("/dms3fs/" + peer.IDB58Encode(id))
 	pinfo, err = InfoFromP2pAddr(addr)
 	if err != nil {
 		t.Error(err)
@@ -115,7 +115,7 @@ func TestP2pAddrConstruction(t *testing.T) {
 		t.Error(err)
 	}
 	addr := ma.StringCast("/ip4/1.2.3.4/tcp/4536")
-	p2paddr := ma.Join(addr, ma.StringCast("/ipfs/"+peer.IDB58Encode(id)))
+	p2paddr := ma.Join(addr, ma.StringCast("/dms3fs/"+peer.IDB58Encode(id)))
 
 	pi := &PeerInfo{ID: id, Addrs: []ma.Multiaddr{addr}}
 	p2paddrs, err := InfoToP2pAddrs(pi)

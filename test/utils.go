@@ -5,9 +5,9 @@ import (
 	"math/rand"
 	"time"
 
-	ci "github.com/libp2p/go-libp2p-crypto"
-	peer "github.com/libp2p/go-libp2p-peer"
-	mh "github.com/multiformats/go-multihash"
+	ci "github.com/dms3-p2p/go-p2p-crypto"
+	peer "github.com/dms3-p2p/go-p2p-peer"
+	mh "github.com/dms3-mft/go-multihash"
 )
 
 func timeSeededRand() io.Reader {

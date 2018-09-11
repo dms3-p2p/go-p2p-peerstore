@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/libp2p/go-libp2p-peer"
-	ma "github.com/multiformats/go-multiaddr"
+	"github.com/dms3-p2p/go-p2p-peer"
+	ma "github.com/dms3-mft/go-multiaddr"
 )
 
 // PeerInfo is a small struct used to pass around a peer with
@@ -25,27 +25,27 @@ func InfoFromP2pAddr(m ma.Multiaddr) (*PeerInfo, error) {
 		return nil, ErrInvalidAddr
 	}
 
-	// make sure it's an IPFS addr
+	// make sure it's an DMS3FS addr
 	parts := ma.Split(m)
 	if len(parts) < 1 {
 		return nil, ErrInvalidAddr
 	}
 
-	// TODO(lgierth): we shouldn't assume /ipfs is the last part
-	ipfspart := parts[len(parts)-1]
-	if ipfspart.Protocols()[0].Code != ma.P_IPFS {
+	// TODO(lgierth): we shouldn't assume /dms3fs is the last part
+	dms3fspart := parts[len(parts)-1]
+	if dms3fspart.Protocols()[0].Code != ma.P_P2P {
 		return nil, ErrInvalidAddr
 	}
 
-	// make sure the /ipfs value parses as a peer.ID
-	peerIdParts := strings.Split(ipfspart.String(), "/")
+	// make sure the /dms3fs value parses as a peer.ID
+	peerIdParts := strings.Split(dms3fspart.String(), "/")
 	peerIdStr := peerIdParts[len(peerIdParts)-1]
 	id, err := peer.IDB58Decode(peerIdStr)
 	if err != nil {
 		return nil, err
 	}
 
-	// we might have received just an /ipfs part, which means there's no addr.
+	// we might have received just an /dms3fs part, which means there's no addr.
 	var addrs []ma.Multiaddr
 	if len(parts) > 1 {
 		addrs = append(addrs, ma.Join(parts[:len(parts)-1]...))
@@ -59,7 +59,7 @@ func InfoFromP2pAddr(m ma.Multiaddr) (*PeerInfo, error) {
 
 func InfoToP2pAddrs(pi *PeerInfo) ([]ma.Multiaddr, error) {
 	addrs := []ma.Multiaddr{}
-	tpl := "/" + ma.ProtocolWithCode(ma.P_IPFS).Name + "/"
+	tpl := "/" + ma.ProtocolWithCode(ma.P_P2P).Name + "/"
 	for _, addr := range pi.Addrs {
 		p2paddr, err := ma.NewMultiaddr(tpl + peer.IDB58Encode(pi.ID))
 		if err != nil {

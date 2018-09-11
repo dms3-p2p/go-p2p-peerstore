@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ipfs/go-datastore"
-	"github.com/ipfs/go-ds-badger"
-	"github.com/libp2p/go-libp2p-peer"
-	ma "github.com/multiformats/go-multiaddr"
+	"github.com/dms3-fs/go-datastore"
+	"github.com/dms3-fs/go-ds-badger"
+	"github.com/dms3-p2p/go-p2p-peer"
+	ma "github.com/dms3-mft/go-multiaddr"
 )
 
 func IDS(t *testing.T, ids string) peer.ID {
